@@ -32,7 +32,7 @@ docker rm ulx3sbin
 If you just plan to build the static binaries yourself:
 ```
 git clone https://github.com/alpin3/ulx3s-core.git
-cd ulx3s
+cd ulx3s-core
 docker build -t test/ulx3s .
 docker run -it --name ulx3sbin test/ulx3s true
 docker cp ulx3sbin:/usr/local/bin static-bin
