@@ -3,7 +3,7 @@ MAINTAINER kost - https://github.com/kost
 
 ENV ULX3SBASEDIR=/opt
 
-RUN apk --update add git bash wget build-base libusb-dev python3 libusb-compat-dev libftdi1-dev libtool automake autoconf make cmake pkgconf py2-pip && \
+RUN apk --update add git bash wget build-base libusb-dev python3 libusb-compat-dev libftdi1-dev libtool automake autoconf make cmake pkgconf py2-pip gengetopt && \
  rm -f /var/cache/apk/* && \
  echo "Success [deps]"
 
@@ -36,6 +36,11 @@ RUN cd $ULX3SBASEDIR && \
  make CFLAGS="-I/usr/include/libftdi1 /usr/lib/libftdi1.a /usr/lib/libusb-1.0.a /usr/lib/libusb.a -static" && \
  install -m 755 -s FleaFPGA-JTAG /usr/local/bin && \
  cd $ULX3SBASEDIR && \
+ git clone https://github.com/emard/TinyFPGA-Bootloader.git && \
+ cd TinyFPGA-Bootloader/programmer/tinyfpgasp && \
+ cp $ULX3SBASEDIR/patches/Makefile.tinyfpga makefile && \
+ make GCC=gcc CLIBS="/usr/lib/libusb-1.0.a -static" && \
+ install -m 755 -s tinyfpgasp /usr/local/bin/ && \
  pip2 install esptool && \
  pip2 install pyserial && \
  pip3 install esptool && \
