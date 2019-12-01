@@ -41,14 +41,20 @@ RUN cd $ULX3SBASEDIR && \
  cp $ULX3SBASEDIR/patches/Makefile.tinyfpga makefile && \
  make GCC=gcc CLIBS="/usr/lib/libusb-1.0.a -static" && \
  install -m 755 -s tinyfpgasp /usr/local/bin/ && \
+ cd $ULX3SBASEDIR && \
+ git clone https://github.com/micropython/micropython && \
+ cd micropython/mpy-cross && \
+ make LDFLAGS_EXTRA="-static" && \
+ install -m 755 -s mpy-cross /usr/local/bin/ && \
+ cd $ULX3SBASEDIR && \
  pip2 install esptool && \
  pip2 install pyserial && \
  pip3 install esptool && \
  pip3 install pyserial && \
+ cd $ULX3SBASEDIR && \
+ rm -rf /opt/TinyFPGA-Bootloader /opt/micropython /opt/openocd /opt/ftx-prog /opt/f32c-tools /opt/FleaFPGA-JTAG && \
  echo "Success [build]"
 
 #VOLUME ["/fpga"]
-WORKDIR /fpga
-
-
+#WORKDIR /fpga
 
