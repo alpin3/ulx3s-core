@@ -62,7 +62,7 @@ RUN cd $ULX3SBASEDIR && \
  pip3 install esptool && \
  pip3 install pyserial && \
  cd $ULX3SBASEDIR && \
- rm -rf /opt/TinyFPGA-Bootloader /opt/micropython /opt/openocd /opt/ftx-prog /opt/f32c-tools /opt/FleaFPGA-JTAG && \
+ rm -rf /opt/libusb0 /opt/libusb0-git /opt/libftdi /opt/libftdi-0.20/ /opt/TinyFPGA-Bootloader /opt/micropython /opt/openocd /opt/ftx-prog /opt/f32c-tools /opt/FleaFPGA-JTAG && \
  echo "Success [build]"
 
 #VOLUME ["/fpga"]
