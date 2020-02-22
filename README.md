@@ -1,4 +1,5 @@
 [![](https://images.microbadger.com/badges/image/alpin3/ulx3s-core.svg)](https://microbadger.com/images/alpin3/ulx3s-core "Get your own image badge on microbadger.com")
+[![Docker Pulls](https://img.shields.io/docker/pulls/alpin3/ulx3s-core)](https://hub.docker.com/r/alpin3/ulx3s-core "Docker hub")
 
 # ulx3s-core
 
