@@ -30,6 +30,9 @@ gittag:
 pushtags:
 	git push --tags origin master
 
+gitappimage:
+	git clone https://github.com/kost/ulx3s-appimage
+
 bins:
 	mkdir -p dist work
 	docker run -it --name $(NAME)-$(VERSION) $(IMAGE):v$(VERSION) true
