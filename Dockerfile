@@ -10,7 +10,6 @@ RUN apk --update add git bash curl wget build-base libusb-dev libusb-compat-dev 
 COPY root /
 
 RUN cd $ULX3SBASEDIR && \
- git clone https://github.com/emard/ulx3s-bin && \
  cd $ULX3SBASEDIR && \
  git clone https://github.com/kost/libusb0 libusb0-git && \
  cd libusb0-git && \
@@ -27,6 +26,12 @@ RUN cd $ULX3SBASEDIR && \
  cp $ULX3SBASEDIR/patches/Makefile.gcc . && \
  CFLAGS="-I/opt/libusb0/include -I/opt/libftdi/include -L/opt/libusb0/lib -L/opt/libftdi/lib" make -f Makefile.gcc && \
  install -m 755 -s ujprog /usr/local/bin && \
+ cd $ULX3SBASEDIR && \
+ https://github.com/kost/fujprog && \
+ cd fujprog && \
+ mkdir build && cd build && \
+ cmake -DBUILD_STATIC=ON .. && \
+ make install/strip && \
  cd $ULX3SBASEDIR && \
  git clone https://github.com/trabucayre/openFPGALoader && \
  cd openFPGALoader && \
