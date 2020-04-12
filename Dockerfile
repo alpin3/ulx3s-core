@@ -5,7 +5,7 @@ ENV ULX3SBASEDIR=/opt
 
 RUN apk --update add git bash curl wget build-base libusb-dev libusb-compat-dev libftdi1-dev python3 libtool automake autoconf make cmake pkgconf py2-pip gengetopt linux-headers eudev-dev argp-standalone && \
  rm -f /var/cache/apk/* && \
- echo "Success [deps]"
+ echo "[i] Success [deps]"
 
 COPY root /
 
